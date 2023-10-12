@@ -1,16 +1,19 @@
 package com.springGateWay.GateWay.controller;
 
 import org.apache.logging.log4j.LogManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.Authenticator;
 import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/backend2")
 public class MessageController {
+
 
 //    private static final Logger LOGGER = (Logger) LogManager.getLogger(MessageController.class);
     @GetMapping("/getMessage")
@@ -18,5 +21,13 @@ public class MessageController {
 //        LOGGER.info("IN Second Server :: getMessage"+id);
         System.out.println("In Second Server :: "+id);
         return "This is message of Second-microservice";
+    }
+
+    @GetMapping("/auth")
+    public boolean auth() {
+//        LOGGER.info("IN Second Server :: getMessage"+id);
+        System.out.println("In auth api");
+
+        return true;
     }
 }
